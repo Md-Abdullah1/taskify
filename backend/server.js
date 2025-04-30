@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 //! Import routes
-const indexRoute = require('./routes/indexRoute');
+// const indexRoute = require('./routes/index.route');
 
 // Initialize app
 const app = express();
@@ -53,4 +53,4 @@ mongoose.connect(process.env.MONGO_URI, {
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// module.exports = app;
+module.exports = app;
