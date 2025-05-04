@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 //! Import routes
-// const indexRoute = require('./routes/index.route');
+const indexRoute = require('./routes/index.route');
 
 // Initialize app
 const app = express();
@@ -28,19 +28,19 @@ app.get("/", (req, res) => {
 });
 
 // ----Routes----
-// app.use('/api', indexRoute);
+app.use('/api', indexRoute);
 
 
 
-app.use("*", (req, res) => {
-  res.status(404).json({
-    success: false,
-    statusCode: 404,
-    url: req.baseUrl,
-    type: req.method,
-    message: "API not found",
-  });
-});
+// app.use("*", (req, res) => {
+//   res.status(404).json({
+//     success: false,
+//     statusCode: 404,
+//     url: req.baseUrl,
+//     type: req.method,
+//     message: "API not found",
+//   });
+// });
 
 
 // MongoDB Connection
