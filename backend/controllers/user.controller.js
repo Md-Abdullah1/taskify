@@ -1,7 +1,7 @@
 const User = require('../models/user.model');
 const generateToken = '123' || require('../config/jwt');
 
-// @desc    Register new user
+//Register new user
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -24,7 +24,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// @desc    Login user
+//Login user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -46,7 +46,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-// @desc    Get logged-in user details (used in /api/user/me)
+// Get logged-in user details (used in /api/user/me)
 const getUserProfile = async (req, res) => {
   try {
     const user = req.user; // from middleware
