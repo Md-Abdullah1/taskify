@@ -1,6 +1,6 @@
 const express = require('express');
 const UserRoutes = require('./user.route');
-const AuthRoutes = require('./auth.route')
+const TaskRoutes = require('./tasks.route')
 // route configurations
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.use('/test', (req, res) => {
 });
 
 
-router.use('/auth',AuthRoutes);
+router.use('/tasks',TaskRoutes);
 router.use('/user',UserRoutes);
 
 // Uncomment this line
