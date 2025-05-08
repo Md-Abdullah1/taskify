@@ -3,8 +3,8 @@ const { registerUser, loginUser, getUserProfile } = require('../controllers/user
 const protect = require('../middlewares/auth.middleware');
 
 const router = express.Router();
-router.route('/register', registerUser);
-router.route('/login', loginUser);
+router.route('/register').post(registerUser);
+router.route('/login').post(loginUser);
 router.route('/me',protect,getUserProfile)
 
 module.exports = router;

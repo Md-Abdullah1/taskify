@@ -1,10 +1,10 @@
 const User = require('../models/user.model');
-const generateToken = '123' || require('../config/jwt');
+const generateToken = require('../Config/jwt');
 
 //Register new user
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-
+  console.log('User registration started',name,email,password);
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -27,6 +27,7 @@ const registerUser = async (req, res) => {
 //Login user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
+  console.log('User login started',email,password);
 
   try {
     const user = await User.findOne({ email });
