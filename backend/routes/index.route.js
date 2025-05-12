@@ -14,5 +14,13 @@ router.use('/test', (req, res) => {
 router.use('/tasks',TaskRoutes);
 router.use('/user',UserRoutes);
 
+router.use("/", (req, res) => {
+  res.status(404).json({
+    success: false,
+    statusCode: 404,
+    url: req.baseUrl,
+    message: "API not found",
+  });
+});
 // Uncomment this line
 module.exports = router;
