@@ -11,6 +11,6 @@ const checkLogin = require("../middlewares/login.middleware");
 const router = express.Router();
 router.route("/register").post(checkRegister, registerUser);
 router.route("/login").post(checkLogin, loginUser);
-router.route("/my-profile").get(checkAuthorization, getUserProfile);
+router.route("/me", checkAuthorization, getUserProfile);
 
 module.exports = router;
