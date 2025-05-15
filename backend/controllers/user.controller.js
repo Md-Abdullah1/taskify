@@ -5,7 +5,7 @@ const generateToken = require("../Config/jwt");
 const registerUser = async (req, res) => {
   if (req.body) {
     const { name, email, password } = req.body;
-    console.log("User registration started", name, email, password);
+    // console.log("User registration started", name, email, password);
     try {
       const existingUser = await User.findOne({ email });
       if (existingUser) {
@@ -35,11 +35,11 @@ const registerUser = async (req, res) => {
 //Login user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
-  console.log("User login started", email, password);
+  // console.log("User login started", email, password);
 
   try {
     const user = await User.findOne({ email });
-    console.log("user here", user, password);
+    // console.log("user here", user, password);
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
