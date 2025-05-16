@@ -1,6 +1,6 @@
 const Task = require('../models/task.model');
-
-// @desc    Create a task
+// ! controllers for performaing CRUD operations on Tasks 
+// ! Create a task controller
 const createTask = async (req, res) => {
   try {
     const { title, description, dueDate, priority, status ,userId} = req.body;
@@ -20,7 +20,7 @@ const createTask = async (req, res) => {
   }
 };
 
-// @desc    Get all tasks for logged-in user
+// ! Get all tasks controller
 const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ createdBy: req.user._id }).sort({ createdAt: -1 });
@@ -30,7 +30,7 @@ const getTasks = async (req, res) => {
   }
 };
 
-// @desc    Get single task
+// !Get single task controller
 const getTaskById = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, createdBy: req.user._id });
@@ -45,7 +45,7 @@ const getTaskById = async (req, res) => {
   }
 };
 
-// @desc    Update task
+//! Update task controller
 const updateTask = async (req, res) => {
   try {
     const task = await Task.findOneAndUpdate(
@@ -64,7 +64,7 @@ const updateTask = async (req, res) => {
   }
 };
 
-// @desc    Delete task
+// ! Delete task controller
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findOneAndDelete({ _id: req.params.id, createdBy: req.user._id });

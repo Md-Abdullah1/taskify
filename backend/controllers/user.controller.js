@@ -1,7 +1,9 @@
 const User = require("../models/user.model");
 const generateToken = require("../Config/jwt");
 
-//Register new user
+// ! CRUD operations on user 
+
+// !  new user Registartion controller
 const registerUser = async (req, res) => {
   if (req.body) {
     const { name, email, password } = req.body;
@@ -32,7 +34,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-//Login user
+//! user Login controller
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   // console.log("User login started", email, password);
@@ -55,7 +57,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-// Get logged-in user details (used in /api/user/me)
+//! Get user details controller
 const getUserProfile = async (req, res) => {
   try {
     const user = req.user; // from middleware
@@ -76,7 +78,6 @@ const getUserProfile = async (req, res) => {
   }
 };
 
-// exporting controllers functions
 
 module.exports = {
   registerUser,
