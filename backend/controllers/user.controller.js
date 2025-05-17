@@ -1,9 +1,9 @@
 const User = require("../models/user.model");
 const generateToken = require("../Config/jwt");
 
-// ! CRUD operations on user 
+// ! controllers for CRUD operations on user
 
-// !  new user Registartion controller
+// !  new user Registartion
 const registerUser = async (req, res) => {
   if (req.body) {
     const { name, email, password } = req.body;
@@ -34,7 +34,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-//! user Login controller
+//! user Login
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   // console.log("User login started", email, password);
@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-//! Get user details controller
+//! Get user details
 const getUserProfile = async (req, res) => {
   try {
     const user = req.user; // from middleware
@@ -77,7 +77,6 @@ const getUserProfile = async (req, res) => {
       .json({ message: "Failed to get user details", error: error.message });
   }
 };
-
 
 module.exports = {
   registerUser,
