@@ -1,9 +1,11 @@
 const Task = require("../models/task.model");
+
 // ! controllers for performaing CRUD operations on Tasks
+
 // ! Create a task
 const createTask = async (req, res) => {
   try {
-    const { title, description, dueDate, priority, status, userId } = req.body;
+    const { title, description, dueDate, priority, status } = req.body;
 
     const task = await Task.create({
       title,
