@@ -1,9 +1,11 @@
 const Task = require("../models/task.model");
+
 // ! controllers for performaing CRUD operations on Tasks
+
 // ! Create a task
 const createTask = async (req, res) => {
   try {
-    const { title, description, dueDate, priority, status, userId } = req.body;
+    const { title, description, dueDate, priority, status } = req.body;
 
     const task = await Task.create({
       title,
@@ -66,14 +68,16 @@ const updateTask = async (req, res) => {
     );
 
     if (!task) {
-      return res.status(404).json({ message: "Task not found" });
+      return res
+        .status(404)
+        .json({ message: "Task not found check Task again" });
     }
 
     res.json(task);
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Updating task failed", error: error.message });
+      .json({ message: "Updating a task failed", error: error.message });
   }
 };
 
@@ -86,14 +90,14 @@ const deleteTask = async (req, res) => {
     });
 
     if (!task) {
-      return res.status(404).json({ message: "Task not found" });
+      return res.status(404).json({ message: "Task not found check again" });
     }
 
     res.json({ message: "Task deleted successfully" });
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Deleting task failed", error: error.message });
+      .json({ message: "Deleting a task failed", error: error.message });
   }
 };
 
