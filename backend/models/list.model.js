@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
 
-const boardSchema = new mongoose.Schema(
+const listSchema = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
       trim: true,
     },
-    createdBy: {
+    boardId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Board",
       required: true,
+    },
+    order: {
+      type: Number,
+      default: 0,
     },
   },
   {
@@ -18,4 +22,4 @@ const boardSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Board", boardSchema);
+module.exports = mongoose.model("List", listSchema);
