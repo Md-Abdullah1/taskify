@@ -1,7 +1,5 @@
 const Task = require("../models/task.model");
 
-// ! controllers for performaing CRUD operations on Tasks
-
 // ! Create a task
 const createTask = async (req, res) => {
   try {
