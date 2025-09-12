@@ -1,6 +1,6 @@
 const Label = require("../models/label.model");
 
-// Create Label (must belong to a board)
+// Create Label 
 const createLabel = async (req, res) => {
   const { name, color, boardId } = req.body;
 
