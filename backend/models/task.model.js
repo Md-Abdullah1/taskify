@@ -19,6 +19,11 @@ const taskSchema = new mongoose.Schema(
       enum: ["Low", "Medium", "High"],
       default: "Medium",
     },
+    status: {
+      type: String,
+      enum: ["Pending", "In-Progress", "Completed"],
+      default: "Pending",
+    },
     boardId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Board",
@@ -29,25 +34,21 @@ const taskSchema = new mongoose.Schema(
       ref: "List",
       required: true,
     },
-    order: {
-      type: Number,
-      default: 0,
-    },
     labels: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Label",
       },
     ],
-    status: {
-      type: String,
-      enum: ["Pending", "In-Progress", "Completed"],
-      default: "Pending",
-    },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+    },
+    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    order: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }
