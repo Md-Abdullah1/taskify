@@ -1,5 +1,6 @@
 .history
 
 .backend/node-modules
+./backend/.env
 
 ./frontend/node-modules
